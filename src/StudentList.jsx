@@ -8,7 +8,7 @@ const StudentList = ({ students }) => {
         <h3>Total Students:</h3>
        
       {students.map((student) => {
-        return (
+        return (<li>
           <Individual
             id={student.id}
             dob={student.dob}
@@ -18,6 +18,7 @@ const StudentList = ({ students }) => {
             cohort={student.cohort}
             names={student.names}
           />
+          </li>
         );
       })}
       ;

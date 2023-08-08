@@ -3,23 +3,24 @@ import React from "react";
 import { useState } from "react";
 import Header from "./header";
 import StudentList from "./StudentList";
-import students from "./data/data.json";
-import StudentArg from "./StudentArg";
+import studentsData from "./data/data.json";
+import StudentArg from "./StudentArranger";
 
-console.log(students);
+
 
 function App() {
+  const [student, setStudent] = useState(studentsData)
+  const [studentList, setStudentList] = useState([])
+
   return (
     <div>
       <Header />
-      <p className="pageLayout">
-        <StudentArg students={students}/>
-      <ul>
-        <StudentList students={students} />;
+      <ul className="pageLayout">
+        <StudentArg students={student}/>
+        <StudentList students={student} />
       </ul>
-      </p>
     </div>
-  );
+  )
 }
 
 export default App;
