@@ -1,8 +1,23 @@
+import "./app.css";
+import React from "react";
+import { useState } from "react";
+import Header from "./header";
+import StudentList from "./StudentList";
+import students from "./data/data.json";
+import StudentArg from "./StudentArg";
+
+console.log(students);
 
 function App() {
   return (
     <div>
-      <h1>Student Dashboard</h1>
+      <Header />
+      <p className="pageLayout">
+        <StudentArg students={students}/>
+      <ul>
+        <StudentList students={students} />;
+      </ul>
+      </p>
     </div>
   );
 }

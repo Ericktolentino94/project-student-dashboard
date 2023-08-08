@@ -1,0 +1,16 @@
+.pageLayout {
+    display: grid;
+    grid-template-areas: "arg list"
+                         "arg list";
+}
+
+.card {
+    border:solid green 1px
+}
+
+.header {
+    text-align: center;
+    height: 100%;
+    color: white;
+    background-color: green;
+}
