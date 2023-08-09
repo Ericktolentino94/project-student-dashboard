@@ -2,25 +2,25 @@ import React from 'react';
 import Individual from './Individual';
 
 
-function handleMouseOver() {
-    console.log("Working")
-}
 
-const StudentArg = ({students}) => {
-
+const StudentArg = ({students, onClick}) => {
+    
+    function handleCohortClick(cohort) {
+        onClick(cohort)
+    }
 
     return (
         <div >
-            <h2 onClick={handleMouseOver}>Choose a Class by Start Date</h2>
+            <h2>Choose a Class by Start Date</h2>
       <h2 className="studentArg">All Students</h2>
-      <h2 className="studentArg">Winter 2026</h2>
-      <h2 className="studentArg">Fall 2026</h2>
-      <h2 className="studentArg">Summer 2026</h2>
-      <h2 className="studentArg">Spring 2026</h2>
-      <h2 className="studentArg">Winter 2025</h2>
-      <h2 className="studentArg">Fall 2025</h2>
-      <h2 className="studentArg">Summer 2025</h2>
-      <h2 className="studentArg">Spring 2025</h2>
+      <h2 className="studentArg" onClick={()=> handleCohortClick(`Winter2026`)}>Winter 2026</h2>
+      <h2 className="studentArg" onClick={()=> handleCohortClick(`Fall2026`)}>Fall 2026</h2>
+      <h2 className="studentArg" onClick={()=> handleCohortClick(`Summer2026`)}>Summer 2026</h2>
+      <h2 className="studentArg"onClick={()=> handleCohortClick(`Spring2026`)}>Spring 2026</h2>
+      <h2 className="studentArg"onClick={()=> handleCohortClick(`Winter2025`)}>Winter 2025</h2>
+      <h2 className="studentArg"onClick={()=> handleCohortClick(`Fall2025`)}>Fall 2025</h2>
+      <h2 className="studentArg"onClick={()=> handleCohortClick(`Summer2025`)}>Summer 2025</h2>
+      <h2 className="studentArg"onClick={()=> handleCohortClick(`Spring2025`)}>Spring 2025</h2>
       </div>
     );
 }

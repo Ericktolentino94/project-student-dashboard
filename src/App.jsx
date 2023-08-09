@@ -8,16 +8,24 @@ import StudentArg from "./StudentArranger";
 
 
 
+
+
 function App() {
   const [student, setStudent] = useState(studentsData)
   const [studentList, setStudentList] = useState([])
+
+  const filterStudentsByCohort = (cohort) => {
+    const filteredList = student.filter(student => student.cohort.cohortCode === cohort)
+    setStudentList([...filteredList])
+    console.log(filteredList)
+  }
 
   return (
     <div>
       <Header />
       <ul className="pageLayout">
-        <StudentArg students={student}/>
-        <StudentList students={student} />
+        <StudentArg onClick={filterStudentsByCohort} students={student} setStudentList={setStudentList}/>
+        <StudentList studentList={studentList} setStudentList={setStudentList}students={student} />
       </ul>
     </div>
   )
