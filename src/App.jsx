@@ -13,17 +13,21 @@ import StudentArg from "./StudentArranger";
 function App() {
   const [students, setStudents] = useState(studentsData)
   const [studentList, setStudentList] = useState([...students])
-  const [showMore, setShowMore] = useState(false)
+ 
+
+
 
   const filterStudentsByCohort = (cohort) => {
   
+    if(cohort) {
     const filteredList = students.filter(student => student.cohort.cohortCode === cohort)
-   if(!filteredList) {
-    setStudentList([...studentList])
-   } else {
     setStudentList([...filteredList])
+   } else {
+    setStudentList(students)
    }
   }
+
+
 
   return (
     <div>

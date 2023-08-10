@@ -2,7 +2,7 @@ import React from "react";
 import Individual from "./Individual";
 
 
-const StudentList = ({ students, studentList }) => {
+const StudentList = ({ students, studentList, onClick}) => {
    
   return (
     <div>
@@ -12,7 +12,7 @@ const StudentList = ({ students, studentList }) => {
       {studentList.map((student) => {
         
         return (<li key={student.id}>
-          <Individual
+          <Individual 
             id={student.id}
             dob={student.dob}
             username={student.username}
@@ -20,6 +20,7 @@ const StudentList = ({ students, studentList }) => {
             certifications={student.certifications}
             cohort={student.cohort}
             names={student.names}
+            onClick={onClick}
           />
           </li>
         )
