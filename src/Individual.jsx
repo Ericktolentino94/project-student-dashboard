@@ -12,7 +12,14 @@ const [showMore, setShowMore] = useState(false)
                 <h2>{username}</h2>
                 <h2>Birthday: {dob}</h2>
                 <button onClick={ () => setShowMore(!showMore)}>Show More...</button>
-                
+                {showMore ? (
+                    <div className="showMore">
+                        <p>ID: {id}</p>
+                        <p>Ceritifications: {certifications}</p>
+                        <p>Cohort: {cohort}</p>
+                    
+                        </div>
+                ) : null }
     </div>
     )
 }
