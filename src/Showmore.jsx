@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Showmore = () => {
+const Showmore = ({id, cohortCode, scores}) => {
     return (
-        <li>
-            
-        </li>
+        <div>
+            <h3>Additional Info</h3>
+        </div>
     );
 }
 
