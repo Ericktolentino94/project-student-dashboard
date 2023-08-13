@@ -52,3 +52,15 @@
   
   
 }
+
+.form {
+    display: grid;
+    
+}
+
+.oneOnOne {
+    display: flex;
+    flex-direction: column;
+    
+  
+}

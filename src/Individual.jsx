@@ -46,7 +46,8 @@ const Individual = ({
       <h2>{username}</h2>
       <h2 style={{color:"green"}}>Birthday:<span style={{color:"black"}}> {dob}</span> </h2>
       <button onClick={() => setShowMore(!showMore)}
-      style={{color:"green"}}>
+      style={{color:"white",
+                backgroundColor: "green"}}>
         {!showMore ? "Show More..." : "Show Less..."}
       </button>
       {showMore ? (
@@ -102,7 +103,7 @@ const Individual = ({
             <h1>
               <strong>1-on-1 Notes</strong>
             </h1>
-            <form onSubmit={handleSubmit}>
+            <form className="form"onSubmit={handleSubmit}>
               <label>Commenter Name </label>
               <input
                 type="text"
@@ -116,10 +117,11 @@ const Individual = ({
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
               />
-              <button>Add Note </button>
+              <button style={{color:"white",
+                backgroundColor: "green"}}>Add Note </button>
             </form>
             {studentNotes.map((note, index) => (
-              <div key={index}>
+              <div className="notes" key={index}>
                 <p>
                   <strong>{note.commenter}</strong> {note.comment}
                 </p>
