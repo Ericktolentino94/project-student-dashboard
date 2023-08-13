@@ -44,15 +44,16 @@ const Individual = ({
         {names.preferredName} {names.middleName} {names.surname}
       </h3>
       <h2>{username}</h2>
-      <h2>Birthday: {dob}</h2>
-      <button onClick={() => setShowMore(!showMore)}>
+      <h2 style={{color:"green"}}>Birthday:<span style={{color:"black"}}> {dob}</span> </h2>
+      <button onClick={() => setShowMore(!showMore)}
+      style={{color:"green"}}>
         {!showMore ? "Show More..." : "Show Less..."}
       </button>
       {showMore ? (
         <div className="showMore">
-          <p>
+          <p className="insideMore">
             Codewards:
-            <span style={{ color: "green" }}>
+            <span  style={{ color: "green" }}>
               Current Total:{" "}
               <strong style={{ color: "black" }}>
                 {codeWars.current.total}
@@ -69,7 +70,7 @@ const Individual = ({
               </strong>
             </span>
           </p>
-          <p>
+          <p className="insideMore">
             Scores:
             <span style={{ color: "green" }}>
               Assignments:
@@ -86,7 +87,7 @@ const Individual = ({
               </strong>
             </span>
           </p>
-          <p>
+          <p className="insideMore">
             Certifications:
             <span style={{ color: "green" }}>
               GitHub: {JSON.parse(certifications.github) ? "✅" : "❌"}

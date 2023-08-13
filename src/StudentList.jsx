@@ -9,7 +9,7 @@ import { useState } from "react";
     <div>
        
       <h2>{title}</h2>
-      <p>Total Students: {studentList.length} </p>
+      <p>Total Students: <span style={{color:"green"}}>{studentList.length} </span></p>
        
       {studentList.map((student) => {
         const isStudentOnTrack = 

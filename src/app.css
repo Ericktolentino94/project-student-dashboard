@@ -1,17 +1,24 @@
 .pageLayout {
+    height: 100vh;
+    width: 100vw;
+    grid-template-areas:
+      "header header "
+      "cohorts students";
     display: grid;
-    grid-template-areas: "arg list"
-                         "arg list";
-    margin:0;
-    padding: 0;
-    border: none;
-    font-family: Arial, sans-serif;
 }
 
 .card {
-    border:solid green 1px;
-    display:grid;
-    grid-template-areas: "pic name"
+    display: flex;
+  width: 500px;
+  height: fit-content;
+  border: 1px solid teal;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px lightgrey;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
                         
 }
 
@@ -26,4 +33,22 @@
     border-bottom: 2px solid green;
     cursor: pointer;
 
+}
+
+.showMore {
+    display: flex;
+    width: 500px;
+    height: fit-content;
+    border: 1px solid teal;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px lightgrey;
+    flex-direction: column;
+    align-items: center;
+}
+
+.insideMore {
+  display: flex;
+  flex-direction: row;
+  
+  
 }
