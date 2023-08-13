@@ -82,15 +82,15 @@ const Individual = ({
             <span style={{ color: "green" }}>
               Assignments:
               <strong style={{ color: "black" }}>
-                %{cohort.scores.assignments * 100}
+                {cohort.scores.assignments * 100}%
               </strong>{" "}
               Projects:
               <strong style={{ color: "black" }}>
-                %{cohort.scores.projects * 100}
+                {cohort.scores.projects * 100}%
               </strong>
               Assesments:{" "}
               <strong style={{ color: "black" }}>
-                %{cohort.scores.assessments * 100}
+                {cohort.scores.assessments * 100}%
               </strong>
             </span>
           </p>
