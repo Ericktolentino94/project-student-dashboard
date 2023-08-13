@@ -6,18 +6,18 @@ import StudentList from "./StudentList";
 import studentsData from "./data/data.json";
 import StudentArg from "./StudentArranger";
 
-console.log(studentsData)
+console.log(studentsData);
 
 function App() {
   const [students, setStudents] = useState(studentsData);
   const [studentList, setStudentList] = useState([...students]);
   const [expandedList, setExpandedList] = useState([...students]);
-  const [showMore, setShowMore] = useState(false)
-  const [title, setTitle] = useState("All Students")
+  const [showMore, setShowMore] = useState(false);
+  const [title, setTitle] = useState("All Students");
 
-function toggleShowMore(){
-  setShowMore(!showMore)
-}
+  function toggleShowMore() {
+    setShowMore(!showMore);
+  }
 
   const filterStudentsByCohort = (cohort) => {
     if (cohort) {
@@ -26,19 +26,20 @@ function toggleShowMore(){
       );
       setStudentList([...filteredList]);
       setTitle(cohort);
-    } if(cohort === "All Students") {
+    }
+    if (cohort === "All Students") {
       setStudentList([...students]);
-      setTitle("All Students")
+      setTitle("All Students");
     }
   };
 
   const toggleList = (studentId) => {
-    if(expandedList.includes(studentId)) {
-      setExpandedList(expandedList.filter(id => id !== studentId))
+    if (expandedList.includes(studentId)) {
+      setExpandedList(expandedList.filter((id) => id !== studentId));
     } else {
-      setExpandedList([...expandedList, studentId])
+      setExpandedList([...expandedList, studentId]);
     }
-  }
+  };
 
   return (
     <div>
@@ -57,7 +58,6 @@ function toggleShowMore(){
           showMore={showMore}
           expandedList={expandedList}
           title={title}
-
         />
       </span>
     </div>

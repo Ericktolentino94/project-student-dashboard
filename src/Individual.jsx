@@ -38,23 +38,29 @@ const Individual = ({
 
   return (
     <div className="card">
-      <p style={{color: isOnTrack.color}}>Student on Track to Graduate: {isOnTrack ? "Yes" : "No"}</p>
+      <p style={{ color: isOnTrack.color }}>
+        {" "}
+        Current Status: {isOnTrack ? "On Track" : "Off Track"}
+      </p>
       <img src={img} alt="" width="200" height="200"></img>
       <h3>
         {names.preferredName} {names.middleName} {names.surname}
       </h3>
       <h2>{username}</h2>
-      <h2 style={{color:"green"}}>Birthday:<span style={{color:"black"}}> {dob}</span> </h2>
-      <button onClick={() => setShowMore(!showMore)}
-      style={{color:"white",
-                backgroundColor: "green"}}>
+      <h2 style={{ color: "green" }}>
+        Birthday:<span style={{ color: "black" }}> {dob}</span>{" "}
+      </h2>
+      <button
+        onClick={() => setShowMore(!showMore)}
+        style={{ color: "white", backgroundColor: "green" }}
+      >
         {!showMore ? "Show More..." : "Show Less..."}
       </button>
       {showMore ? (
         <div className="showMore">
           <p className="insideMore">
             Codewards:
-            <span  style={{ color: "green" }}>
+            <span style={{ color: "green" }}>
               Current Total:{" "}
               <strong style={{ color: "black" }}>
                 {codeWars.current.total}
@@ -63,9 +69,9 @@ const Individual = ({
               <strong style={{ color: "black" }}>
                 {codeWars.current.lastWeek}
               </strong>
-              Goal: <strong style={{ color: "black" }}>
-              {codeWars.goal.total}
-              </strong> Percentage of Goal Achieved:
+              Goal:{" "}
+              <strong style={{ color: "black" }}>{codeWars.goal.total}</strong>{" "}
+              Percentage of Goal Achieved:
               <strong style={{ color: "black" }}>
                 {codeWars.goal.lastWeek}
               </strong>
@@ -76,15 +82,15 @@ const Individual = ({
             <span style={{ color: "green" }}>
               Assignments:
               <strong style={{ color: "black" }}>
-                {cohort.scores.assignments}
+                %{cohort.scores.assignments * 100}
               </strong>{" "}
               Projects:
               <strong style={{ color: "black" }}>
-                {cohort.scores.projects}
+                %{cohort.scores.projects * 100}
               </strong>
               Assesments:{" "}
               <strong style={{ color: "black" }}>
-                {cohort.scores.assessments}
+                %{cohort.scores.assessments * 100}
               </strong>
             </span>
           </p>
@@ -103,7 +109,7 @@ const Individual = ({
             <h1>
               <strong>1-on-1 Notes</strong>
             </h1>
-            <form className="form"onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit}>
               <label>Commenter Name </label>
               <input
                 type="text"
@@ -117,8 +123,9 @@ const Individual = ({
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
               />
-              <button style={{color:"white",
-                backgroundColor: "green"}}>Add Note </button>
+              <button style={{ color: "white", backgroundColor: "green" }}>
+                Add Note{" "}
+              </button>
             </form>
             {studentNotes.map((note, index) => (
               <div className="notes" key={index}>
