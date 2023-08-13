@@ -3,12 +3,13 @@ import Individual from "./Individual";
 import { useState } from "react";
 
 
-  const StudentList = ({ students, studentList, onClick, expandedList, toggleList}) => {
-    
+  const StudentList = ({ students, studentList, onClick, expandedList, toggleList, title}) => {
+    console.log(studentList)
   return (
     <div>
-        <h2>All Students</h2>
-        <h3>Total Students: {studentList.length} </h3>
+       
+      <h2>{title}</h2>
+      <p>Total Students: {studentList.length} </p>
        
       {studentList.map((student) => {
         const isStudentOnTrack = 
@@ -18,9 +19,9 @@ import { useState } from "react";
         student.certifications.mockInterview &&
         student.codewars.goal.total > 600;
        
-
+        
         return (
-        <li key={student.id}>
+          <div key={student.id}>
           <Individual 
             id={student.id}
             dob={student.dob}
@@ -36,7 +37,8 @@ import { useState } from "react";
             isOnTrack = {isStudentOnTrack}
 
           />
-          </li>
+          </div>
+       
         )
       })}
       

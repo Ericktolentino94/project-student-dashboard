@@ -12,17 +12,33 @@ const Individual = ({
   names,
   onClick,
   codeWars,
-  isOnTrack
+  isOnTrack,
 }) => {
   const [showMore, setShowMore] = useState(false);
-    console.log(isOnTrack)
 
-  const [commenter, setCommenter] = useState('');
-  const [comment, setComment] = useState ('');
-    
+  const [commenter, setCommenter] = useState("");
+  const [comment, setComment] = useState("");
+  const [notes, setNotes] = useState([]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (commenter && comment) {
+      const newNote = {
+        id: id,
+        commenter: commenter,
+        comment: comment,
+      };
+      setNotes([...notes, newNote]);
+      setCommenter("");
+      setComment("");
+    }
+  };
+
+  const studentNotes = notes.filter((note) => note.id === id);
+
   return (
     <div className="card">
-        <p>On Track: {isOnTrack ? "Yes" : "No"}</p>
+      <p style={{color: isOnTrack.color}}>Student on Track to Graduate: {isOnTrack ? "Yes" : "No"}</p>
       <img src={img} alt="" width="200" height="200"></img>
       <h3>
         {names.preferredName} {names.middleName} {names.surname}
@@ -36,36 +52,81 @@ const Individual = ({
         <div className="showMore">
           <p>
             Codewards:
-            <span>
-              Current Total: {codeWars.current.total} Last Week:{" "}
-              {codeWars.current.lastWeek} Goal: {codeWars.goal.total} Percentage
-              of Goal Achieved:{codeWars.goal.lastWeek}
+            <span style={{ color: "green" }}>
+              Current Total:{" "}
+              <strong style={{ color: "black" }}>
+                {codeWars.current.total}
+              </strong>{" "}
+              Last Week:{" "}
+              <strong style={{ color: "black" }}>
+                {codeWars.current.lastWeek}
+              </strong>
+              Goal: <strong style={{ color: "black" }}>
+              {codeWars.goal.total}
+              </strong> Percentage of Goal Achieved:
+              <strong style={{ color: "black" }}>
+                {codeWars.goal.lastWeek}
+              </strong>
             </span>
           </p>
           <p>
             Scores:
-            <span>
-              Assignments:{cohort.scores.assignments} Projects:{" "}
-              {cohort.scores.projects} Assesments: {cohort.scores.assessments}{" "}
+            <span style={{ color: "green" }}>
+              Assignments:
+              <strong style={{ color: "black" }}>
+                {cohort.scores.assignments}
+              </strong>{" "}
+              Projects:
+              <strong style={{ color: "black" }}>
+                {cohort.scores.projects}
+              </strong>
+              Assesments:{" "}
+              <strong style={{ color: "black" }}>
+                {cohort.scores.assessments}
+              </strong>
             </span>
           </p>
           <p>
-            Certifications:{" "}
-            <span>
-              GitHub: {JSON.parse(certifications.github) ? "Yes" : "No"} 
-              LinkedIn: {JSON.parse(certifications.linkedin) ? "Yes" : "No"} 
-              Mocked Interview: {JSON.parse(certifications.mockInterview) ? "Yes" : "No"} 
-              Resume: {JSON.parse(certifications.resume) ? "Yes" : "No" }
-              
+            Certifications:
+            <span style={{ color: "green" }}>
+              GitHub: {JSON.parse(certifications.github) ? "✅" : "❌"}
+              LinkedIn: {JSON.parse(certifications.linkedin) ? "✅" : "❌"}
+              Mocked Interview:{" "}
+              {JSON.parse(certifications.mockInterview) ? "✅" : "❌"}
+              Resume: {JSON.parse(certifications.resume) ? "✅" : "❌"}
             </span>
           </p>
 
+          <div className="oneOnOne">
+            <h1>
+              <strong>1-on-1 Notes</strong>
+            </h1>
+            <form onSubmit={handleSubmit}>
+              <label>Commenter Name </label>
+              <input
+                type="text"
+                value={commenter}
+                onChange={(e) => setCommenter(e.target.value)}
+              ></input>
+
+              <label>Comment </label>
+              <input
+                type="text"
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+              />
+              <button>Add Note </button>
+            </form>
+            {studentNotes.map((note, index) => (
+              <div key={index}>
+                <p>
+                  <strong>{note.commenter}</strong> {note.comment}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       ) : null}
-      <div className="studentDetails">
-
-      </div>
-      
     </div>
   );
 };

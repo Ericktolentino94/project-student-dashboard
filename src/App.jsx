@@ -11,8 +11,9 @@ console.log(studentsData)
 function App() {
   const [students, setStudents] = useState(studentsData);
   const [studentList, setStudentList] = useState([...students]);
-  const [expandedList, setExpandedList] = useState([]);
+  const [expandedList, setExpandedList] = useState([...students]);
   const [showMore, setShowMore] = useState(false)
+  const [title, setTitle] = useState("All Students")
 
 function toggleShowMore(){
   setShowMore(!showMore)
@@ -24,8 +25,10 @@ function toggleShowMore(){
         (student) => student.cohort.cohortCode === cohort
       );
       setStudentList([...filteredList]);
-    } else {
-      setStudentList(students);
+      setTitle(cohort);
+    } if(cohort === "All Students") {
+      setStudentList([...students]);
+      setTitle("All Students")
     }
   };
 
@@ -53,6 +56,7 @@ function toggleShowMore(){
           toggleShowMore={toggleShowMore}
           showMore={showMore}
           expandedList={expandedList}
+          title={title}
 
         />
       </span>
